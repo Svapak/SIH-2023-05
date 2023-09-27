@@ -10,5 +10,5 @@ data class problems(
     val locationLat: Long,
     val locationLong: Long,
     val username: String,
-    val userimageURL: String,
+    val userimageURL: String?
 )

@@ -4,17 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.waterproject.R
 import com.example.waterproject.ReachOut
 import dataclass.problems
-import dataclass.solutions
-import kotlinx.coroutines.withContext
 
 class ReachOutAdapter (val context: Context, private  val itemList: ArrayList<problems> = ArrayList<problems>(), private val onItemClickListener: ReachOut):RecyclerView.Adapter<ReachOutAdapter.MyViewHolder>(){
 

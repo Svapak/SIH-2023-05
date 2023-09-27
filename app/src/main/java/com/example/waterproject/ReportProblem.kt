@@ -139,7 +139,7 @@ class ReportProblem : AppCompatActivity(){
                     if(it.isSuccessful){
                         storageRef.child("images/${imgUri!!.lastPathSegment}").downloadUrl.addOnSuccessListener {imgUrl->
                             val problemsDataClass = problems(imgUrl.toString(), descreption, expectedLoss, title, problemType,
-                                city!!, lat, long)
+                                city!!, lat, long, username, null)
                             dbref1.setValue(problemsDataClass).addOnCompleteListener {
                                 if(it.isSuccessful){
 //                                    Toast.makeText(this, "Issue reported successfully", Toast.LENGTH_SHORT).show()
