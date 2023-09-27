@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaterProject"
         tools:targetApi="31">
-
+        <activity
+            android:name=".writeSolution"
+            android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
@@ -30,9 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".Splash"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
