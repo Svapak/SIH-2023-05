@@ -1,31 +1,49 @@
 package com.example.waterproject
 
+import Adapter.ReachOutAdapter
+import Adapter.issuesAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import dataclass.issues
+import dataclass.problems
+import dataclass.solutions
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [IssueFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class IssueFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var dbref : DatabaseReference
+    private lateinit var itemRecyclerView: RecyclerView
+
+    var items = ArrayList<problems>()
+
+    val problemTypes = arrayOf(
+        "none",
+        "Urban Flooding",
+        "Rural Flooding",
+        "Oil Spill",
+        "Tsunami",
+        "Polluted River",
+        "Drought",
+        "Drainage problems"
+    )
+
+    private val issueList = ArrayList<issues>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -37,23 +55,50 @@ class IssueFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_issue, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment IssueFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            IssueFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        itemRecyclerView= view.findViewById(R.id.recyclerView)
+        itemRecyclerView.layoutManager = LinearLayoutManager(context)
+        itemRecyclerView.setHasFixedSize(true)
+
+        dbref = FirebaseDatabase.getInstance().getReference("problems")
+
+        fetchRecyclerView()
+
     }
+
+    private fun fetchRecyclerView() {
+        issueList.clear()
+        for(i in 1..7){
+            dbref.addValueEventListener( object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        for(dataSnap in snapshot.children){
+                            val data = dataSnap.getValue(issues::class.java)
+                            issueList.add(data!!)
+                        }
+
+                        val itemAdapter = issuesAdapter(issueList)
+                        itemRecyclerView.adapter = itemAdapter
+
+                        itemAdapter.setOnItemClickListener(object: issuesAdapter.onItemClickListener{
+                            override fun onItemClick(position: Int) {
+                                //onClick
+
+                            }
+
+                        })
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(activity, error.toString(), Toast.LENGTH_LONG).show()
+                }
+            })
+
+        }
+    }
+
 }

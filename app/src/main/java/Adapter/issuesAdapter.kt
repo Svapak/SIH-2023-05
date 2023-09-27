@@ -3,14 +3,18 @@ package Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.waterproject.R
+import com.squareup.picasso.Picasso
+import dataclass.issues
 import dataclass.problems
 import dataclass.solutions
 
-class ReachOutAdapter (private val itemList: ArrayList<solutions> = ArrayList<solutions>()):RecyclerView.Adapter<ReachOutAdapter.MyViewHolder>(){
+class issuesAdapter (private val itemList: ArrayList<issues> = ArrayList<issues>()):
+    RecyclerView.Adapter<issuesAdapter.MyViewHolder>(){
 
     private lateinit var mListener: onItemClickListener
 
@@ -33,40 +37,31 @@ class ReachOutAdapter (private val itemList: ArrayList<solutions> = ArrayList<so
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = itemList[position]
 
-        holder.providedByTV.text = currentitem.providedBy
+        if(currentitem.imageURL!=null){
+            Picasso.get().load(currentitem.imageURL).into(holder.imageUrlIV)
+        }
+        holder.estimatedLossTV.text = currentitem.estimatedloss
 //        holder.problemTV.text = currentitem.problem
-        holder.descriptionTV.text = currentitem.description
+//        holder.descriptionTV.text = currentitem.description
         holder.typeTV.text = currentitem.type
-        holder.providedByTV.text = currentitem.providedBy
-        holder.upvoteCount.text = currentitem.upvoteCount.toString()
-
-        holder.upvoteButton.setOnClickListener {
-
-        }
-
-        holder.donateButton.setOnClickListener{
-//            onItemClickListener.onItemItemClicked(position)
-        }
+        holder.cityTV.text = currentitem.city
     }
 
     override fun getItemCount(): Int {
         return itemList.size
     }
 
-    fun updateItemList(itemList: List<solutions>){
+    fun updateItemList(itemList: List<issues>){
         this.itemList.clear()
         this.itemList.addAll(itemList)
         notifyDataSetChanged()
     }
 
     class MyViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
-        val providedByTV: TextView= itemView.findViewById(R.id.providedBy)
-//        val problemTV : TextView= itemView.findViewById(R.id.problem)
-        val descriptionTV : TextView= itemView.findViewById(R.id.description)
+        val imageUrlIV: ImageView= itemView.findViewById(R.id.image)
+        val estimatedLossTV : TextView = itemView.findViewById(R.id.probableLoss)
         val typeTV : TextView = itemView.findViewById(R.id.type)
-        val upvoteButton : ImageView = itemView.findViewById(R.id.upvoteButton)
-        val upvoteCount : TextView = itemView.findViewById(R.id.upvoteCount)
-        val donateButton: ImageView = itemView.findViewById(R.id.donateButton)
+        val cityTV: TextView = itemView.findViewById(R.id.city)
     }
 
 }
