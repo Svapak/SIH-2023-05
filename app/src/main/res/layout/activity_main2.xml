@@ -15,4 +15,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardElevation="20dp"
+
+        >
+        <com.ismaeldivita.chipnavigation.ChipNavigationBar
+            android:id="@+id/navBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1B4965"
+            app:cnb_orientationMode="horizontal"
+            app:cnb_animationDuration="175"
+            app:cnb_badgeColor="#009688"
+            app:cnb_iconSize="24dp"
+            app:cnb_radius="25dp"
+            app:cnb_addBottomInset="true"
+            app:cnb_addLeftInset="true"
+            app:cnb_addRightInset="true"
+            app:cnb_unselectedColor="#CAE9FF"
+
+            />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
