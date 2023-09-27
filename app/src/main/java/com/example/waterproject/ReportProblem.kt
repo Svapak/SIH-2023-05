@@ -134,6 +134,7 @@ class ReportProblem : AppCompatActivity(){
 
             if(imgUri==null){
                 Toast.makeText(this, "Please upload an image", Toast.LENGTH_LONG).show()
+                pd.dismiss()
             }else{
                 storageRef.child("images/${imgUri!!.lastPathSegment}").putFile(imgUri!!).addOnCompleteListener { it1 ->
                     if(it1.isSuccessful){
@@ -166,6 +167,7 @@ class ReportProblem : AppCompatActivity(){
                             //dbref2.child(problemType).child(city).child("users").child(username).setValue(true)
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
+                            finish()
                             pd.dismiss()
                         }
                         pd.dismiss()
