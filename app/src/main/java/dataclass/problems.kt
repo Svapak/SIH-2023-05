@@ -10,5 +10,7 @@ data class problems(
     val type: String,
     val city: String,
     val locationLat: Long,
-    val locationLong: Long
+    val locationLong: Long,
+    val username: String,
+    val userimageURL: String,
 )
