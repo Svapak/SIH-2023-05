@@ -45,8 +45,8 @@ class ReportProblem : AppCompatActivity(){
     private lateinit var storageRef : StorageReference
     private lateinit var firebaseAuth: FirebaseAuth
     private val city: String = ""
-    private val lat: Long = 0
-    private val long: Long = 0
+    private val lat: Double = 0.0
+    private val long: Double = 0.0
     private var problemType : String = "none"
     private var imgUri: Uri? = null
     private lateinit var bitmap : Bitmap
@@ -109,10 +109,10 @@ class ReportProblem : AppCompatActivity(){
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
-        val username: String = firebaseAuth.currentUser!!.email.toString()
+        val username: String = firebaseAuth.currentUser!!.uid.toString()
 //        val username = "abhinavkr327"
         dbref1 = FirebaseDatabase.getInstance().getReference("user").child(username).child("problems")
-        dbref2 = FirebaseDatabase.getInstance().getReference("problems").push()
+        dbref2 = FirebaseDatabase.getInstance().getReference("problems")
         storageRef = FirebaseStorage.getInstance().reference
 
 
@@ -135,8 +135,8 @@ class ReportProblem : AppCompatActivity(){
             if(imgUri==null){
                 Toast.makeText(this, "Please upload an image", Toast.LENGTH_LONG).show()
             }else{
-                storageRef.child("images/${imgUri!!.lastPathSegment}").putFile(imgUri!!).addOnCompleteListener {
-                    if(it.isSuccessful){
+                storageRef.child("images/${imgUri!!.lastPathSegment}").putFile(imgUri!!).addOnCompleteListener { it1 ->
+                    if(it1.isSuccessful){
                         storageRef.child("images/${imgUri!!.lastPathSegment}").downloadUrl.addOnSuccessListener {imgUrl->
                             val problemsDataClass = problems(imgUrl.toString(), descreption, expectedLoss, title, problemType,
                                 city!!, lat, long, username, null)
@@ -168,7 +168,10 @@ class ReportProblem : AppCompatActivity(){
                             startActivity(intent)
                             pd.dismiss()
                         }
+                        pd.dismiss()
 
+                    } else{
+                        pd.dismiss()
                     }
 
                 }
