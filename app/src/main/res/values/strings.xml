@@ -27,4 +27,8 @@
     <string name="lbl_email_id">Email ID</string>
     <string name="lbl_type">Type</string>
     <string name="hello_blank_fragment">hi</string>
+    <string name="home">HOME</string>
+    <string name="settings">SETTINGS</string>
+    <string name="solutions">SOLUTIONS</string>
+    <string name="issues">ISSUES</string>
 </resources>
