@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    android:layout_margin="16dp"
+    android:background="@drawable/issue_card_border"
+    app:cardBackgroundColor="#EBF2FA">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="342dp"
+        android:layout_height="184dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/issueName"
+        android:layout_width="342dp"
+        android:layout_height="94dp"
+        android:background="#EBF2FA"
+        android:layout_marginTop="184dp"
+        android:text="Description"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        />
+    <ImageView
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@drawable/img"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="140dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Username"
+        android:textSize="16dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginLeft="60dp"/>
+
+
+</androidx.cardview.widget.CardView>
