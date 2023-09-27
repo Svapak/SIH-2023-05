@@ -1,10 +1,18 @@
 package com.example.waterproject
 
+import Adapter.ReachOutAdapter
+import Models.ReachOutViewModel
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import dataclass.problems
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,6 +24,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ReachOut.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+private lateinit var viewModel: ReachOutViewModel
+private lateinit var itemRecyclerView: RecyclerView
+lateinit var adapter: ReachOutAdapter
+var items = ArrayList<problems>()
+
 class ReachOut : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -55,5 +69,47 @@ class ReachOut : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        itemRecyclerView= view.findViewById(R.id.recyclerView)
+        itemRecyclerView.layoutManager = LinearLayoutManager(context)
+        itemRecyclerView.setHasFixedSize(true)
+        adapter = ReachOutAdapter(requireContext(), items,this)
+        itemRecyclerView.adapter= adapter
+        createDummyItemList()
+
+        viewModel = ViewModelProvider(this).get(ReachOutViewModel::class.java)
+        viewModel.allItems.observe(viewLifecycleOwner, Observer {
+            adapter.updateItemList(it)
+        })
+    }
+
+    private fun createDummyItemList(){
+        for (i in 1.. 100){
+            //items.add((problems("Item"+i)))
+        }
+    }
+
+    fun onItemItemClicked(position: Int){
+//        val intent = Intent(this@ReachOut.requireContext(),TutorDes::class.java)
+//        intent.putExtra("firstname", items[position].firstName)
+//        intent.putExtra("lastname",items[position].lastName)
+//        intent.putExtra("image", items[position].image)
+//        intent.putExtra("monthlyfee",items[position].monthlyfee)
+//        intent.putExtra("doubtfee", items[position].doubtfee)
+//        intent.putExtra("qualifications", items[position].qualifications)
+//        intent.putExtra("dayandtime", items[position].dayandtime)
+//        intent.putExtra("state", items[position].state)
+//        intent.putExtra("adress", items[position].adress)
+//        intent.putExtra("averagerating", items[position].averagerating)
+//        intent.putExtra("hiringstatus", items[position].hiringstatus)
+//        intent.putExtra("students", items[position].studentssubscribed)
+//        intent.putExtra("email",items[position].email)
+//        intent.putExtra("ratings",items[position].averagerating)
+//        intent.putExtra("uid",items[position].uid)
+        //startActivity(intent)
     }
 }
