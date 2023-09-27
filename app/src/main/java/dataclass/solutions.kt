@@ -1,7 +1,7 @@
 package dataclass
 
 data class solutions(
-    val imageURL: String,
+    //val imageURL: String,
     val providedBy: String,
     val problem:String,
     val description:String,

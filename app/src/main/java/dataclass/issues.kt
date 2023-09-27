@@ -6,5 +6,8 @@ data class issues(
     val estimatedloss:String,
     val title: String,
     val locationLat: Long,
-    val locationLong: Long
+    val locationLong: Long,
+    val city: String,
+    val username: String,
+    val type: String
 )

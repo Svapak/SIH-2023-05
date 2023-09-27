@@ -153,14 +153,17 @@ class ReportProblem : AppCompatActivity(){
                                 estimatedloss = expectedLoss,
                                 title = title,
                                 locationLat = lat,
-                                locationLong = long
+                                locationLong = long,
+                                city = city,
+                                username = username,
+                                type = problemType
                             )
-                            dbref2.child(problemType).child(city).setValue(issuesDataClass).addOnCompleteListener {
+                            dbref2.child(problemType).push().setValue(issuesDataClass).addOnCompleteListener {
                                 if(it.isSuccessful)
                                 Toast.makeText(this, "Issue reported successfully", Toast.LENGTH_SHORT).show()
                                 else Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                             }
-                            dbref2.child(problemType).child(city).child("users").child(username).setValue(true)
+                            //dbref2.child(problemType).child(city).child("users").child(username).setValue(true)
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             pd.dismiss()
