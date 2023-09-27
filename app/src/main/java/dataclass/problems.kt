@@ -6,7 +6,6 @@ data class problems(
     val estimatedloss:String,
     val support:String,
     val title: String,
-    val image: String,
     val type: String,
     val city: String,
     val locationLat: Long,
