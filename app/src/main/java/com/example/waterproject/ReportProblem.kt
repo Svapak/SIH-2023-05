@@ -109,8 +109,8 @@ class ReportProblem : AppCompatActivity(){
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
-//        val username: String = firebaseAuth.currentUser!!.email.toString()
-        val username = "abhinavkr327"
+        val username: String = firebaseAuth.currentUser!!.email.toString()
+//        val username = "abhinavkr327"
         dbref1 = FirebaseDatabase.getInstance().getReference("user").child(username).child("problems")
         dbref2 = FirebaseDatabase.getInstance().getReference("problems").push()
         storageRef = FirebaseStorage.getInstance().reference

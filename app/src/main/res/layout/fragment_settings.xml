@@ -93,7 +93,7 @@
                     android:layout_marginLeft="37dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="23dp"
-                    android:src="@tools:sample/avatars" />
+                    android:src="@drawable/addimage" />
 
                 <TextView
                     android:id="@+id/textView2"

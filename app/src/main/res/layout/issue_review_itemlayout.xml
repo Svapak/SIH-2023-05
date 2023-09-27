@@ -125,7 +125,7 @@
             android:background="#CAE9FF"
             android:fontFamily="@font/poppins"
             android:padding="3dp"
-            android:text="CountNo"
+            android:text="00"
             android:textColor="#1B4965"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
