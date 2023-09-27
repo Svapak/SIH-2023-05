@@ -58,7 +58,7 @@ class IssueFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemRecyclerView= view.findViewById(R.id.recyclerView)
+        itemRecyclerView= view.findViewById(R.id.recyclerViewImg)
         itemRecyclerView.layoutManager = LinearLayoutManager(context)
         itemRecyclerView.setHasFixedSize(true)
 
