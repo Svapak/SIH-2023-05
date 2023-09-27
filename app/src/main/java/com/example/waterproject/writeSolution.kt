@@ -1,5 +1,7 @@
 package com.example.waterproject
 
+import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
@@ -14,6 +16,7 @@ import dataclass.solutions
 import java.sql.Types.NULL
 
 class writeSolution : AppCompatActivity() {
+    private lateinit var pd : ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_solution)
@@ -40,17 +43,23 @@ class writeSolution : AppCompatActivity() {
                 type = itemSelected.toString()
             }
 
-        val title1 = findViewById<EditText>(R.id.title).toString()
-        val location = findViewById<EditText>(R.id.location).toString()
-        val description = findViewById<EditText>(R.id.description).toString()
-        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+
 
         val button: Button = findViewById(R.id.button)
 
         button.setOnClickListener {
+            pd = ProgressDialog(this)
+            pd.setMessage("uploading...")
+            pd.show()
+            val title1 = findViewById<EditText>(R.id.title).text.toString()
+            val location = findViewById<EditText>(R.id.location).text.toString()
+            val description = findViewById<EditText>(R.id.description).text.toString()
+            val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
             if (title == null || location == null || type == null || description == null || uid == null) {
+                pd.dismiss()
                 Toast.makeText(this, "Insufficient Information", Toast.LENGTH_SHORT).show()
+
             } else {
                 val data = solutions(
                     type = type!!,
@@ -66,10 +75,16 @@ class writeSolution : AppCompatActivity() {
                     .setValue(data).addOnCompleteListener {
                     if (it.isSuccessful) {
                         Toast.makeText(this, "Thanks for contributing", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        pd.dismiss()
+                        startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(this, "Something won't wrong", Toast.LENGTH_SHORT).show()
+                        pd.dismiss()
                     }
                 }
+
             }
         }
     }
