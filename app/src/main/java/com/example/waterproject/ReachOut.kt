@@ -85,21 +85,21 @@ class ReachOut : Fragment() {
             btn[i].setOnClickListener {
                 if(isChecked[i]){
                     isChecked[i]=false
-                    btn[i].setTextColor(parseColor(R.color.black.toString()))
+                    btn[i].setTextColor(parseColor("#000000"))
                     btn[i].backgroundTintList= this.getResources().getColorStateList(R.color.tint)
                 }else{
                     isChecked[i]=true
-                    btn[i].setTextColor(parseColor(R.color.white.toString()))
+                    btn[i].setTextColor(parseColor("#FFFFFF"))
                     btn[i].backgroundTintList= this.getResources().getColorStateList(R.color.black)
                     if(i==0){
                         for(j in 1..7){
                             isChecked[j]=false
-                            btn[j].setTextColor(parseColor(R.color.black.toString()))
+                            btn[j].setTextColor(parseColor("#000000"))
                             btn[j].backgroundTintList= this.getResources().getColorStateList(R.color.tint)
                         }
                     } else{
                         isChecked[0]=false
-                        btn[0].setTextColor(parseColor(R.color.black.toString()))
+                        btn[0].setTextColor(parseColor("#000000"))
                         btn[0].backgroundTintList= this.getResources().getColorStateList(R.color.tint)
                     }
                 }

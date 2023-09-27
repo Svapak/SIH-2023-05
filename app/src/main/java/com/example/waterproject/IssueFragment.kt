@@ -25,8 +25,6 @@ class IssueFragment : Fragment() {
     private lateinit var dbref : DatabaseReference
     private lateinit var itemRecyclerView: RecyclerView
 
-    var items = ArrayList<problems>()
-
     val problemTypes = arrayOf(
         "none",
         "Urban Flooding",
@@ -58,7 +56,7 @@ class IssueFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemRecyclerView= view.findViewById(R.id.recyclerView)
+        itemRecyclerView= view.findViewById(R.id.recyclerViewImg)
         itemRecyclerView.layoutManager = LinearLayoutManager(context)
         itemRecyclerView.setHasFixedSize(true)
 
@@ -71,7 +69,7 @@ class IssueFragment : Fragment() {
     private fun fetchRecyclerView() {
         issueList.clear()
         for(i in 1..7){
-            dbref.addValueEventListener( object: ValueEventListener {
+            dbref.child(problemTypes[i]).addValueEventListener( object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
                         for(dataSnap in snapshot.children){
@@ -82,13 +80,13 @@ class IssueFragment : Fragment() {
                         val itemAdapter = issuesAdapter(issueList)
                         itemRecyclerView.adapter = itemAdapter
 
-                        itemAdapter.setOnItemClickListener(object: issuesAdapter.onItemClickListener{
-                            override fun onItemClick(position: Int) {
-                                //onClick
-
-                            }
-
-                        })
+//                        itemAdapter.setOnItemClickListener(object: issuesAdapter.onItemClickListener{
+//                            override fun onItemClick(position: Int) {
+//                                //onClick
+//
+//                            }
+//
+//                        })
 
                     }
                 }
