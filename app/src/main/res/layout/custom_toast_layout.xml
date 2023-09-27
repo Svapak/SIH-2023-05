@@ -3,7 +3,7 @@
     android:id="@+id/view_layout_of_toast"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/toast_layout"
+
     android:gravity="center"
     android:padding="11dp">
 <ImageView

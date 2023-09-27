@@ -58,7 +58,6 @@ class IssueRepository {
                 args.asList().filter { it -> it.length > 0 }.forEach { println("Hello, $it!") }
             }
 
-            databaseReference.
+//            databaseReference.
        }
     }
-}

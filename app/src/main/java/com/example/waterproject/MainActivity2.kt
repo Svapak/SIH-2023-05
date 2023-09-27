@@ -4,13 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
-private lateinit var navBar:ChipNavigationBar
-class MainActivity : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
+    private lateinit var navBar: ChipNavigationBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main2)
         navBar=findViewById(R.id.navBar)
         navBar.setMenuResource(R.menu.navmenu)
-
     }
 }
