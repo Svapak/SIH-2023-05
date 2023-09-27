@@ -45,13 +45,12 @@
             android:id="@+id/selectImage"
             android:layout_width="300dp"
             android:layout_height="200dp"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="25dp"
             android:scaleType="centerInside"
-            android:src="@drawable/addimage"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            />
+            android:src="@drawable/addimage" />
 
 
         <TextView

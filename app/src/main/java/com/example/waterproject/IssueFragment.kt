@@ -73,8 +73,12 @@ class IssueFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
                         for(dataSnap in snapshot.children){
-                            val data = dataSnap.getValue(issues::class.java)
-                            issueList.add(data!!)
+                            val data = dataSnap?.getValue(issues::class.java)
+                            if(data!=null)
+                            {
+                                issueList.add(data)
+                            }
+
                         }
 
                         val itemAdapter = issuesAdapter(issueList)
