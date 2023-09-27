@@ -145,7 +145,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="35dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="7dp"
                     android:text="Edit profile"
                     android:textSize="18sp"
                     android:gravity="top"/>
