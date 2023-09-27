@@ -53,13 +53,31 @@
             android:layout_gravity="center"
             />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Above Image is Categorized as"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="30dp" />
+
         <Button
             android:id="@+id/selectLocationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="25dp"
             android:text="Select Location"
             />
+
 
         <EditText
             android:id="@+id/expectedLossEditText"
