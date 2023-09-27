@@ -35,7 +35,8 @@ class SignIn : AppCompatActivity() {
         signup.setOnClickListener {
             startActivity(intent)
         }
-        mdatabaseref= FirebaseDatabase.getInstance().getReference("Users")
+        type=""
+        mdatabaseref= FirebaseDatabase.getInstance().getReference("user")
         findViewById<Button>(R.id.btnSignin).setOnClickListener{
             signinregistereduser()
         }
@@ -71,15 +72,17 @@ class SignIn : AppCompatActivity() {
                  mdatabaseref.child(auth.currentUser!!.uid).addValueEventListener(object:ValueEventListener
                   {
                       override fun onDataChange(snapshot: DataSnapshot) {
-                              var user1=snapshot.getValue(users::class.java)
+                              val user1=snapshot?.getValue(users::class.java)
                                type=user1?.ischecked.toString()
                           if(type=="org")
                           {
+                              finishAffinity()
                               val intent1=Intent(this@SignIn,MainActivity::class.java)
                               startActivity(intent1)
                           }
                           else
                           {
+                              finishAffinity()
                               val intent2=Intent(this@SignIn,MainActivity2::class.java)
                               startActivity(intent2)
                           }

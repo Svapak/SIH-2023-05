@@ -90,8 +90,8 @@
                     android:layout_width="79dp"
                     android:layout_height="79dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="37dp"
                     android:layout_alignParentTop="true"
+                    android:layout_marginLeft="37dp"
                     android:layout_marginTop="23dp"
                     android:src="@drawable/addimage" />
 

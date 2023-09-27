@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaterProject"
         tools:targetApi="31">
-
+        <activity android:name=".editprofile"
+            android:exported="false"/>
         <activity android:name=".ReportProblem"
             android:exported="false">
         </activity>

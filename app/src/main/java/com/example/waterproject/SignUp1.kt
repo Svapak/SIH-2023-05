@@ -31,7 +31,7 @@ class SignUp1 : AppCompatActivity() {
             startActivity(intent1)
             btnresident.isChecked=false
         }
-       mdatabaseref= FirebaseDatabase.getInstance().getReference("Users")
+       mdatabaseref= FirebaseDatabase.getInstance().getReference("user")
         val btnsignup=findViewById<Button>(R.id.btnresident)
         btnsignup.setOnClickListener {
             registerUser()
@@ -72,7 +72,7 @@ class SignUp1 : AppCompatActivity() {
                     toast.show()
 
                     val user= users(name = name, email = email, ischecked = "resi")
-                    mdatabaseref.child("${firebaseuser.uid}").setValue(user).addOnCompleteListener {
+                    mdatabaseref.child(firebaseuser.uid).setValue(user).addOnCompleteListener {
 
                         finishAffinity()
                         val intent:Intent=Intent(this,MainActivity2::class.java)

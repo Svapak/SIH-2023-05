@@ -38,7 +38,7 @@ class SignUpautho : AppCompatActivity() {
         btnsignup.setOnClickListener {
             registerUser()
         }
-        mdatabaseref= FirebaseDatabase.getInstance().getReference("Users")
+        mdatabaseref= FirebaseDatabase.getInstance().getReference("user")
 
 
     }
@@ -76,7 +76,7 @@ class SignUpautho : AppCompatActivity() {
                     toast.show()
 
                     var user= users(name = name, email = email, code = code, ischecked = "org")
-                    mdatabaseref.child("${firebaseuser.uid}").setValue(user).addOnCompleteListener {
+                    mdatabaseref.child(firebaseuser.uid).setValue(user).addOnCompleteListener {
 
                         finishAffinity()
                         val intent:Intent=Intent(this,MainActivity::class.java)
