@@ -82,12 +82,12 @@
             android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="208dp"
+                android:layout_height="162dp"
                 android:layout_margin="4dp"
                 android:background="#FFFFFF"
-                android:paddingBottom="5dp"
                 android:paddingEnd="15dp"
+                android:paddingBottom="5dp"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="5dp">
 
@@ -106,7 +106,7 @@
                         android:layout_marginTop="136dp"
                         android:fontFamily="@font/poppins"
                         android:includeFontPadding="false"
-                        android:text="User Name"
+                        android:text="Rohan Sharma"
                         android:textAlignment="viewStart"
                         android:textColor="#1D4965"
                         android:textSize="10dp"
@@ -118,18 +118,18 @@
 
                     <TextView
                         android:id="@+id/type"
-                        android:layout_width="43dp"
-                        android:layout_height="12dp"
+                        android:layout_width="86dp"
+                        android:layout_height="21dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/poppins"
                         android:gravity="center_horizontal|top"
-                        android:text="#type"
+                        android:text="Urban Flooding"
                         android:textColor="#1D4965"
                         android:textSize="10sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.152"
+                        app:layout_constraintHorizontal_bias="0.128"
                         app:layout_constraintStart_toEndOf="@+id/user_image"
                         app:layout_constraintTop_toBottomOf="@+id/providedBy" />
 
@@ -137,10 +137,8 @@
                         android:id="@+id/user_image"
                         android:layout_width="33dp"
                         android:layout_height="36dp"
-
                         android:layout_marginTop="136dp"
                         android:src="@drawable/baseline_person_24"
-
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.104"
                         app:layout_constraintStart_toStartOf="parent"
@@ -151,17 +149,18 @@
                     <TextView
 
                         android:id="@+id/description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_width="199dp"
+                        android:layout_height="88dp"
+                        android:layout_marginTop="24dp"
                         android:background="#EBF2FA"
                         android:fontFamily="@font/poppins"
+                        android:lines="3"
                         android:overScrollMode="always"
                         android:padding="5dp"
-                        android:text="hi my name is adityakumar"
-                        android:textSize="15dp"
+                        android:text="Trending urban flood solutions include green infrastructure, smart stormwater management, flood-resilient urban planning, early warning systems, and climate-resilient infrastructure, alongside community engagement and international cooperation."
+                        android:textSize="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintHorizontal_bias="0.555"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/user_image" />
 
@@ -193,7 +192,7 @@
                         android:layout_marginTop="136dp"
                         android:fontFamily="@font/poppins"
                         android:includeFontPadding="false"
-                        android:text="User Name"
+                        android:text="Nidhi Tiwari"
                         android:textAlignment="viewStart"
                         android:textColor="#1D4965"
                         android:textSize="10dp"
@@ -212,7 +211,7 @@
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins"
                         android:gravity="center_horizontal|top"
-                        android:text="#type"
+                        android:text="Drought"
                         android:textColor="#1D4965"
                         android:textSize="10sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -224,10 +223,8 @@
                         android:id="@+id/user_imageq"
                         android:layout_width="33dp"
                         android:layout_height="36dp"
-
                         android:layout_marginTop="136dp"
                         android:src="@drawable/baseline_person_24"
-
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.104"
                         app:layout_constraintStart_toStartOf="parent"
@@ -238,15 +235,15 @@
                     <TextView
 
                         android:id="@+id/descriptionq"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="199dp"
+                        android:layout_height="88dp"
                         android:layout_marginTop="16dp"
                         android:background="#EBF2FA"
                         android:fontFamily="@font/poppins"
                         android:overScrollMode="always"
                         android:padding="5dp"
-                        android:text="hi my name is adityakumar"
-                        android:textSize="15dp"
+                        android:text="Trending drought solutions encompass water conservation, efficient irrigation, drought-resistant crops, desalination, rainwater harvesting, advanced water recycling, and improved groundwater management, emphasizing sustainable practices and community engagement."
+                        android:textSize="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -280,7 +277,7 @@
                         android:layout_marginTop="136dp"
                         android:fontFamily="@font/poppins"
                         android:includeFontPadding="false"
-                        android:text="User Name"
+                        android:text="Jhanvi Patel"
                         android:textAlignment="viewStart"
                         android:textColor="#1D4965"
                         android:textSize="10dp"
@@ -292,18 +289,18 @@
 
                     <TextView
                         android:id="@+id/typep"
-                        android:layout_width="43dp"
-                        android:layout_height="12dp"
+                        android:layout_width="102dp"
+                        android:layout_height="16dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="4dp"
                         android:fontFamily="@font/poppins"
                         android:gravity="center_horizontal|top"
-                        android:text="#type"
+                        android:text="Drainage Problem"
                         android:textColor="#1D4965"
                         android:textSize="10sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.152"
+                        app:layout_constraintHorizontal_bias="0.297"
                         app:layout_constraintStart_toEndOf="@+id/user_imagep"
                         app:layout_constraintTop_toBottomOf="@+id/providedByp" />
 
@@ -325,15 +322,15 @@
                     <TextView
 
                         android:id="@+id/descriptionp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="199dp"
+                        android:layout_height="88dp"
                         android:layout_marginTop="20dp"
                         android:background="#EBF2FA"
                         android:fontFamily="@font/poppins"
                         android:overScrollMode="always"
                         android:padding="5dp"
-                        android:text="hi my name is adityakumar"
-                        android:textSize="15dp"
+                        android:text="Trending drainage solutions comprise smart stormwater management, green infrastructure, improved drainage systems, flood-resilient urban planning, and adaptive governance, enabling effective water management in urban areas to mitigate flooding risks."
+                        android:textSize="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -470,10 +467,16 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-
-
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/PieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"/>
 
         </LinearLayout>
+
+
     </ScrollView>
 
 

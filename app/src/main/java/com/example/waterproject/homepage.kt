@@ -1,59 +1,115 @@
+
 package com.example.waterproject
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import java.lang.Math.abs
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [homepage.newInstance] factory method to
- * create an instance of this fragment.
- */
 class homepage : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    var databaseReference: DatabaseReference? = null
+    private lateinit var listLat: ArrayList<Double>
+    private lateinit var listCity: ArrayList<String>
+    private lateinit var listLog: ArrayList<Double>
+    private lateinit var tvOne : TextView
+    private lateinit var tvThree : TextView
+    private lateinit var tvTwo : TextView
+    var eventListener: ValueEventListener? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_homepage, container, false)
-    }
+        val Types = arrayOf(
+            "Urban Flooding",
+            "Rural Flooding",
+            "Oil Spill",
+            "Tsunami",
+            "Polluted River",
+            "Drought",
+            "Drainage problems"
+        )
+        listLat = ArrayList()
+        listLog = ArrayList()
+        listCity = ArrayList()
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment homepage.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            homepage().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        var cityList = arrayListOf<String>()
+        var typeList = arrayListOf<String>()
+        for (i in 0..6) {
+            //  var j: Int?= null
+            databaseReference = FirebaseDatabase.getInstance().reference
+
+            val reference = databaseReference!!.child("problems").child(Types[i])
+
+            eventListener = reference!!.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    listLat.clear()
+                    listLog.clear()
+                    listCity.clear()
+                    if (snapshot.exists()) {
+                        for (itemSnapshot in snapshot.children) {
+
+                            listLat.add(itemSnapshot.child("locationLat").value as Double)
+                            listLog.add(itemSnapshot.child("locationLong").value as Double)
+                            listCity.add(itemSnapshot.child("city").value.toString())
+                        }
+                        val size = listLat.size
+
+                        //   var f: Boolean=false
+                        for (k in 0..(size - 1)) {
+                            var cnt = 0
+                            for (j in (k + 1)..(size - 1)) {
+                                if (abs(listLat[k] - listLat[j]) <= 1.5 && abs(listLog[k] - listLog[j]) <= 1.5) cnt++
+                            }
+                            if (cnt >= 7) {
+                                cityList.add(listCity[k])
+                                typeList.add(Types[i])
+
+                            }
+                        }
+
+
+                    }
+
                 }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+
+                }
+            })
+            tvOne.setText("${typeList[0]} is predicted in ${cityList[0]}")
+            tvTwo.setText("${typeList[1]} is predicted in ${cityList[1]}")
+            tvThree.setText("${typeList[2]} is predicted in ${cityList[2]}")
+
+
+
+        }
+
+        fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_home, container, false)
             }
+
+        }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<TextView>(R.id.text1).setText(tvOne.toString())
+        view.findViewById<TextView>(R.id.text2).setText(tvTwo.toString())
+        view.findViewById<TextView>(R.id.text1).setText(tvThree.toString())
     }
 }
