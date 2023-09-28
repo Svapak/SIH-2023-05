@@ -133,6 +133,7 @@
 
 
             <LinearLayout
+                android:id="@+id/viewofedit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -162,6 +163,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutofsignout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -268,8 +270,9 @@
                 />
 
             <LinearLayout
+                android:id="@+id/layoutofaboutus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="29dp"
                 android:orientation="horizontal">
 
 
@@ -278,24 +281,25 @@
                     android:layout_width="90dp"
                     android:layout_height="21dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="35dp"
                     android:layout_alignParentTop="true"
+                    android:layout_marginLeft="35dp"
                     android:layout_marginTop="5dp"
+                    android:gravity="top"
                     android:text="About us"
-                    android:textSize="18sp"
-                    android:gravity="top"/>
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/drop2w"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:gravity="end"
                     android:layout_marginStart="200dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="end"
                     android:text=">"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/layoutofprivacypolicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -325,6 +329,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutoftermsandcondition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

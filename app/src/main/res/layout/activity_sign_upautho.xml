@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".SignUpautho"
     android:background="@drawable/signup">
+
     <TextView
         android:id="@+id/txtSignUp"
         style="@style/txtPoppinssemibold35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:ellipsize="end"
         android:singleLine="true"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/lbl_sign_up" />
@@ -114,7 +115,7 @@
         android:layout_marginEnd="30dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/rounded"
         android:hint="Email Address"
         app:layout_constraintEnd_toEndOf="@+id/nameInputLayout"
@@ -138,7 +139,7 @@
         android:layout_marginEnd="30dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/rounded"
         android:hint="Password"
         app:layout_constraintEnd_toEndOf="@+id/emailInputLayout"
@@ -148,6 +149,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEntryField"
             cornerRadius="25dp"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:lines="1" />
@@ -158,19 +160,44 @@
         android:id="@+id/codeInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         cornerRadius="25dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="30dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="28dp"
         android:background="@drawable/rounded"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="18dp"
         android:hint="Code"
+        app:layout_constraintEnd_toEndOf="@+id/TypeInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/TypeInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/TypeInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/codeEntryField"
+            cornerRadius="25dp"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TypeInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        cornerRadius="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/rounded"
+        android:hint="Type"
         app:layout_constraintEnd_toEndOf="@+id/passwordInputLayout"
         app:layout_constraintStart_toStartOf="@+id/passwordInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/codeEntryField"
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+            android:padding="15dp"
+            android:id="@+id/typeEntryField"
             cornerRadius="25dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -217,12 +217,6 @@ class ReportProblem : AppCompatActivity(){
         val classes = arrayOf("Urban Flooding", "Rural Flooding", "Oil Spill", "Tsunami", "Polluted River", "Drought", "Drainage Problem")
        tvOutput.text = classes[maxPos]
         problemType = classes[maxPos]
-//        var s = ""
-//        for (i in classes.indices) {
-//            s += "${classes[i]}: ${String.format("%.1f%%", confidences[i] * 100)}\n"
-//        }
-//        tvOutput.text = s
-// Releases model resources if no longer used.
         model.close()
 
     }

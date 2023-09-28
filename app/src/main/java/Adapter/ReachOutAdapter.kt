@@ -32,7 +32,7 @@ class ReachOutAdapter (private val itemList: ArrayList<solutions> = ArrayList<so
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = itemList[position]
-
+        holder.setIsRecyclable(false)
         holder.providedByTV.text = currentitem.providedBy
 //        holder.problemTV.text = currentitem.problem
         holder.descriptionTV.text = currentitem.description
@@ -41,7 +41,7 @@ class ReachOutAdapter (private val itemList: ArrayList<solutions> = ArrayList<so
         holder.upvoteCount.text = currentitem.upvoteCount.toString()
 
         holder.upvoteButton.setOnClickListener {
-
+            currentitem.upvoteCount++
         }
 
         holder.donateButton.setOnClickListener{
@@ -53,11 +53,11 @@ class ReachOutAdapter (private val itemList: ArrayList<solutions> = ArrayList<so
         return itemList.size
     }
 
-    fun updateItemList(itemList: List<solutions>){
-        this.itemList.clear()
-        this.itemList.addAll(itemList)
-        notifyDataSetChanged()
-    }
+//    fun updateItemList(itemList: List<solutions>){
+//        this.itemList.clear()
+//        this.itemList.addAll(itemList)
+//        notifyDataSetChanged()
+//    }
 
     class MyViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         val providedByTV: TextView= itemView.findViewById(R.id.providedBy)

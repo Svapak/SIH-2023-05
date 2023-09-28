@@ -10,7 +10,8 @@ data class users(
     val name:String="",
     val ischecked:String="",
     val address:String="",
-    val phone:String=""
+    val phone:String="",
+    val type:String=""
 )
 
 

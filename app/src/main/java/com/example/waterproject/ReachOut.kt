@@ -1,9 +1,6 @@
 package com.example.waterproject
 
 import Adapter.ReachOutAdapter
-import Models.ReachOutViewModel
-import android.content.Intent
-import android.graphics.Color
 import android.graphics.Color.parseColor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,11 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.HorizontalScrollView
 import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -23,9 +20,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import dataclass.problems
 import dataclass.solutions
+import dataclass.users
 
 private lateinit var dbref : DatabaseReference
+private lateinit var dbref1 : DatabaseReference
 private lateinit var itemRecyclerView: RecyclerView
+private lateinit var firebaseAuth: FirebaseAuth
 
 var items = ArrayList<problems>()
 
@@ -70,6 +70,13 @@ class ReachOut : Fragment() {
         itemRecyclerView.setHasFixedSize(true)
 
         dbref = FirebaseDatabase.getInstance().getReference("solutions")
+
+        fetchRecyclerView()
+        callUser(view)
+
+    }
+
+    private fun callUser(view: View) {
         val btn0: Button = view.findViewById(R.id.btn0)
         val btn1: Button = view.findViewById(R.id.btn1)
         val btn2: Button = view.findViewById(R.id.btn2)
@@ -106,14 +113,13 @@ class ReachOut : Fragment() {
                 fetchRecyclerView()
             }
         }
-
     }
 
     private fun fetchRecyclerView() {
         solutionList.clear()
         for(i in 1..7){
             if(isChecked[i] or isChecked[0]){
-                dbref.addValueEventListener( object: ValueEventListener {
+                dbref.child(problemTypes[i]).addValueEventListener( object: ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if(snapshot.exists()){
                             for(dataSnap in snapshot.children){
