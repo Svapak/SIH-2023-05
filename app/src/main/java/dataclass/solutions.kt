@@ -7,6 +7,6 @@ data class solutions(
     val description:String="",
     val type:String="",
     val supporters: ArrayList<String> = arrayListOf<String>(),
-    val upvoteCount: Long=0,
+    var upvoteCount: Long=0,
     val city: String=""
 )
