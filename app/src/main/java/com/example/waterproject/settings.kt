@@ -80,6 +80,15 @@ private lateinit var mdatabaseref:DatabaseReference
             val intent4=Intent(requireContext(),termscondition::class.java)
             startActivity(intent4)
         }
+        val view5=view.findViewById<LinearLayout>(R.id.layoutofsignout)
+        view5.setOnClickListener {
+
+              mauth.signOut()
+            val intent = Intent(requireContext(),SignIn::class.java)
+            startActivity(intent)
+
+
+        }
 
 
 
