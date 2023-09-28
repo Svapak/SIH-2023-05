@@ -149,6 +149,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEntryField"
             cornerRadius="25dp"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:lines="1" />
@@ -173,6 +174,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/codeEntryField"
             cornerRadius="25dp"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:lines="1" />

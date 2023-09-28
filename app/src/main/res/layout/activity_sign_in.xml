@@ -85,6 +85,7 @@
         <com.google.android.material.textfield.TextInputEditText
             cornerRadius="25dp"
             android:id="@+id/EmailEntryField1"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:lines="1" />
