@@ -2,6 +2,7 @@ package com.example.waterproject
 
 import Adapter.ReachOutAdapter
 import Adapter.issuesAdapter
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -61,6 +63,12 @@ class IssueFragment : Fragment() {
         itemRecyclerView.setHasFixedSize(true)
 
         dbref = FirebaseDatabase.getInstance().getReference("problems")
+        val floatingactionbtn=view.findViewById<FloatingActionButton>(R.id.floating_action_home)
+        floatingactionbtn.setOnClickListener {
+            val intent= Intent(context,ReportProblem::class.java)
+            startActivity(intent)
+        }
+
 
         fetchRecyclerView()
 
